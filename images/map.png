@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en-US"
+	prefix="og: https://ogp.me/ns#" >
+<head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let i;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",i=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")&&this._isValidScriptType(i)?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}_isValidScriptType(e){return!e||""===e||"string"==typeof e&&["text/javascript","text/x-javascript","text/ecmascript","text/jscript","application/javascript","application/x-javascript","application/ecmascript","application/jscript","module"].includes(e.toLowerCase())}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript;n||console.error("WPRocket unable to document.write this: "+t);const i=document.createRange(),r=n.parentElement;let a=e.get(n);void 0===a&&(a=n.nextSibling,e.set(n,a));const o=document.createDocumentFragment();i.setStart(o,0),o.appendChild(i.createContextualFragment(t)),r.insertBefore(o,a)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="alternate" type="application/rss+xml" title="PNG All RSS Feed" href="https://www.pngall.com/feed" />
+<link rel="alternate" type="application/atom+xml" title="PNG All Atom Feed" href="https://www.pngall.com/feed/atom" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+<link rel="pingback" href="https://www.pngall.com/xmlrpc.php" />
+<link rel="alternate" hreflang="en" href="https://www.pngall.com" />
+<link rel="alternate" hreflang="pt" href="https://www.pngall.com/pt/" />
+<link rel="alternate" hreflang="ru" href="https://www.pngall.com/ru/" />
+<link rel="alternate" hreflang="es" href="https://www.pngall.com/es/" />
+<link rel="alternate" hreflang="th" href="https://www.pngall.com/th/" />
+<link rel="alternate" hreflang="de" href="https://www.pngall.com/de/" />
+<link rel="alternate" hreflang="ar" href="https://www.pngall.com/ar/" />
+<link rel="alternate" hreflang="fr" href="https://www.pngall.com/fr/" />
+<link rel="alternate" hreflang="id" href="https://www.pngall.com/id/" />
+<link rel="alternate" hreflang="it" href="https://www.pngall.com/it/" />
+<link rel="alternate" hreflang="nl" href="https://www.pngall.com/nl/" />
+<link rel="alternate" hreflang="tl" href="https://www.pngall.com/tl/" />
+<link rel="alternate" hreflang="tr" href="https://www.pngall.com/tr/" />
+<!--[if lt IE 9]>
+	<script src="https://www.pngall.com/wp-content/themes/boxes/js/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<!--[if lt IE 7]>
+	<link rel="stylesheet" href="https://www.pngall.com/wp-content/themes/boxes/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+		<!-- All in One SEO 4.2.5.1 - aioseo.com -->
+		<title>World Map PNG Transparent Images - PNG All</title><link rel="stylesheet" href="https://www.pngall.com/wp-content/cache/min/1/db5c7bfcd6b9ae3dbd44ef202c8acfcc.css" media="all" data-minify="1" />
+		<meta name="description" content="The world map can have a number of advantages: from cultural and social to geographical and educational. Children love to use their imagination and play games where they pretend that they are someone or something. Children can use the world map to represent themselves in another country, and imagine what life will be like on" />
+		<meta name="robots" content="max-image-preview:large" />
+		<meta name="google-site-verification" content="PPv3unHKMV0IfV8I8_E3PqI6ZJzvb6SY-seidK9kAEQ" />
+		<link rel="canonical" href="https://www.pngall.com/world-map-png" />
+		<meta name="generator" content="All in One SEO (AIOSEO) 4.2.5.1 " />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="PNG All -" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="World Map PNG Transparent Images - PNG All" />
+		<meta property="og:description" content="The world map can have a number of advantages: from cultural and social to geographical and educational. Children love to use their imagination and play games where they pretend that they are someone or something. Children can use the world map to represent themselves in another country, and imagine what life will be like on" />
+		<meta property="og:url" content="https://www.pngall.com/world-map-png" />
+		<meta property="article:published_time" content="2017-08-17T10:12:56+00:00" />
+		<meta property="article:modified_time" content="2018-08-20T07:50:34+00:00" />
+		<meta property="article:publisher" content="https://www.facebook.com/pngall" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@pngallimg" />
+		<meta name="twitter:title" content="World Map PNG Transparent Images - PNG All" />
+		<meta name="twitter:description" content="The world map can have a number of advantages: from cultural and social to geographical and educational. Children love to use their imagination and play games where they pretend that they are someone or something. Children can use the world map to represent themselves in another country, and imagine what life will be like on" />
+		<meta name="twitter:creator" content="@pngallimg" />
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https:\/\/www.pngall.com\/world-map-png#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.pngall.com\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.pngall.com\/","name":"Home","description":"PNGAll is a PNG web-blog where you can find best high-quality free PNG images on various categories such as animals, food, nature, things, objects and more.","url":"https:\/\/www.pngall.com\/"}}]},{"@type":"Organization","@id":"https:\/\/www.pngall.com\/#organization","name":"PNG All","url":"https:\/\/www.pngall.com\/","sameAs":["https:\/\/www.facebook.com\/pngall","https:\/\/www.twitter.com\/pngallimg"]},{"@type":"WebSite","@id":"https:\/\/www.pngall.com\/#website","url":"https:\/\/www.pngall.com\/","name":"PNG All","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.pngall.com\/#organization"}},{"@type":"BlogPosting","@id":"https:\/\/www.pngall.com\/world-map-png#blogposting","name":"World Map PNG Transparent Images - PNG All","headline":"World Map PNG Transparent Images","description":"The world map can have a number of advantages: from cultural and social to geographical and educational. Children love to use their imagination and play games where they pretend that they are someone or something. Children can use the world map to represent themselves in another country, and imagine what life will be like on","author":{"@id":"https:\/\/www.pngall.com\/author\/rojal#author"},"publisher":{"@id":"https:\/\/www.pngall.com\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/www.pngall.com\/wp-content\/uploads\/2017\/05\/World-Map-Free-Download-PNG.png","width":2981,"height":1458,"caption":"World Map Free Download PNG"},"datePublished":"2017-08-17T10:12:56+00:00","dateModified":"2017-08-17T10:12:56+00:00","inLanguage":"en-US","mainEntityOfPage":{"@id":"https:\/\/www.pngall.com\/world-map-png#webpage"},"isPartOf":{"@id":"https:\/\/www.pngall.com\/world-map-png#webpage"},"articleSection":"World"},{"@type":"WebPage","@id":"https:\/\/www.pngall.com\/world-map-png#webpage","url":"https:\/\/www.pngall.com\/world-map-png","name":"World Map PNG Transparent Images - PNG All","description":"The world map can have a number of advantages: from cultural and social to geographical and educational. Children love to use their imagination and play games where they pretend that they are someone or something. Children can use the world map to represent themselves in another country, and imagine what life will be like on","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.pngall.com\/#website"},"breadcrumb":{"@id":"https:\/\/www.pngall.com\/world-map-png#breadcrumblist"},"author":"https:\/\/www.pngall.com\/author\/rojal#author","creator":"https:\/\/www.pngall.com\/author\/rojal#author","image":{"@type":"ImageObject","url":"https:\/\/www.pngall.com\/wp-content\/uploads\/2017\/05\/World-Map-Free-Download-PNG.png","@id":"https:\/\/www.pngall.com\/#mainImage","width":2981,"height":1458,"caption":"World Map Free Download PNG"},"primaryImageOfPage":{"@id":"https:\/\/www.pngall.com\/world-map-png#mainImage"},"datePublished":"2017-08-17T10:12:56+00:00","dateModified":"2018-08-20T07:50:34+00:00"}]}
+		</script>
+		<!-- All in One SEO -->
+
+
+<link rel="alternate" type="application/rss+xml" title="PNG All &raquo; Feed" href="https://www.pngall.com/feed" />
+<link rel="alternate" type="application/rss+xml" title="PNG All &raquo; Comments Feed" href="https://www.pngall.com/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="PNG All &raquo; World Map PNG Transparent Images Comments Feed" href="https://www.pngall.com/world-map-png/feed" />
+<meta content="boxes v.1.0" name="generator"/><meta content="Theme Junkie Framework v.1.0.5" name="generator"/><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+
+
+
+
+
+
+
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/themes/boxes/js/jquery.min.js?ver=1.8.3' id='jquery-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/themes/boxes/js/jquery-ui-1.8.5.custom.min.js?ver=1.8.5' id='jquery-ui-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/themes/boxes/js/jquery.flexslider-min.js?ver=2.2.0' id='jquery-flexslider-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/js/superfish.js?ver=1664958000' id='jquery-superfish-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/js/html5.js?ver=1664958000' id='html5-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/js/custom.js?ver=1664958000' id='jquery-custom-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/functions/shortcodes/shortcodes.js?ver=1664958000' id='tj_shortcodes-js'></script>
+<link rel="https://api.w.org/" href="https://www.pngall.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.pngall.com/wp-json/wp/v2/posts/17305" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.pngall.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.pngall.com/wp-includes/wlwmanifest.xml" /> 
+
+<link rel='shortlink' href='https://www.pngall.com/?p=17305' />
+			<style>
+			#related_posts_thumbnails li{
+				border-right: 1px solid #DDDDDD;
+				background-color: #FFFFFF			}
+			#related_posts_thumbnails li:hover{
+				background-color: #EEEEEF;
+			}
+			.relpost_content{
+				font-size:	16px;
+				color: 		#333333;
+			}
+			.relpost-block-single{
+				background-color: #FFFFFF;
+				border-right: 1px solid  #DDDDDD;
+				border-left: 1px solid  #DDDDDD;
+				margin-right: -1px;
+			}
+			.relpost-block-single:hover{
+				background-color: #EEEEEF;
+			}
+		</style>
+
+	<!-- Custom Styling -->
+<style type="text/css">
+body { }        
+.flexslider {display: none;}          
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157" crossorigin="anonymous"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="rocketlazyloadscript" async src="https://www.googletagmanager.com/gtag/js?id=UA-196746120-5"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-196746120-5');
+</script>
+	</head>
+<body class="post-template-default single single-post postid-17305 single-format-standard chrome">
+		<script type="rocketlazyloadscript" async data-cfasync="false">
+       const url = new URL(window.location.href);
+       const clickID = url.searchParams.get("click_id");
+       const sourceID = url.searchParams.get("source_id");
+
+       const s = document.createElement("script");
+       s.dataset.cfasync = "false";
+       s.src = "https://system-notify.app/f/sdk.js?z=415910";
+       s.onload = (opts) => {
+           opts.zoneID = 415910;
+           opts.extClickID = clickID;
+           opts.subID1 = sourceID;
+           opts.actions.onPermissionGranted = () => {};
+           opts.actions.onPermissionDenied = () => {};
+           opts.actions.onAlreadySubscribed = () => {};
+           opts.actions.onError = () => {};
+       };
+       document.head.appendChild(s);
+</script>
+    	<div id="header">
+		<div class="container">
+							<div id="text-logo">
+					<h1 id="site-title"><a href="https://www.pngall.com">PNG All</a></h1>
+					<p id="site-desc"></p>
+				</div><!-- #text-logo -->
+						<div id="primary-nav" class="container">
+				<ul id="primary-navigation" class="nav"><li id="menu-item-14775" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14775"><a href="https://www.pngall.com/">Home</a></li>
+<li id="menu-item-107055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107055"><a href="https://www.pngall.com/categories">Categories</a></li>
+<li id="menu-item-14776" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14776"><a href="https://www.pngall.com/about">About</a></li>
+<li id="menu-item-105423" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105423"><a href="https://www.pngall.com/dmca">DMCA</a></li>
+<li id="menu-item-14777" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14777"><a href="https://www.pngall.com/contact">Contact</a></li>
+<li id="menu-item-105424" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105424"><a href="https://www.pngall.com/privacy-policy">Privacy Policy</a></li>
+</ul>				
+								
+					<div class="btn-nav-right">
+						<i class="icon-reorder"></i> Menu 
+					</div><!-- .btn-nav-right -->
+							
+			</div><!-- #primary-nav -->
+			
+						
+			<div class="clear"></div>
+	
+		</div><!-- .container -->
+	</div><!-- #header -->
+		
+						
+
+			<nav id="mobile-menu">
+				<div class="container">
+					<ul id="responsive-menu" class="ul"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14775"><a href="https://www.pngall.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107055"><a href="https://www.pngall.com/categories">Categories</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14776"><a href="https://www.pngall.com/about">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105423"><a href="https://www.pngall.com/dmca">DMCA</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14777"><a href="https://www.pngall.com/contact">Contact</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105424"><a href="https://www.pngall.com/privacy-policy">Privacy Policy</a></li>
+</ul>				</div>
+				<!-- .container -->
+			</nav><!-- #mobile-menu -->
+							<div id="main" class="container">	<div id="content">
+	
+		
+			<article id="post-17305" class="post-17305 post type-post status-publish format-standard has-post-thumbnail hentry category-world">
+				
+								<h1 class="entry-title">World Map PNG Transparent Images</h1>
+<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/"> <!-- Breadcrumb NavXT 7.1.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Home Page" href="https://www.pngall.com" class="home" ><span property="name">Home</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the World category" href="https://www.pngall.com/category/world" class="taxonomy category" ><span property="name">World</span></a><meta property="position" content="2"></span> &gt; <span class="post post-post current-item">World Map PNG Transparent Images</span> </div>
+
+				<div class="entry-header">
+					<span class="author-link">Submitted by <a href="https://www.pngall.com/author/rojal" title="Posts by Rojal" rel="author">Rojal</a></span> on Aug 17, 2017				</div><!-- .entry-header -->
+				<div class="clear"></div>		
+						
+				
+				<div class="clear"></div>
+
+													
+									
+									
+					<div class="entry-content">
+										<p>
+					Download top and best high-quality free <strong>World Map PNG Transparent Images</strong> backgrounds available in various sizes. To view the full PNG size resolution click on any of the below image thumbnail.
+					<br>
+					<br>
+					<strong>License Info</strong>: <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license" target="_blank">Creative Commons 4.0 BY-NC</a>
+<br>
+						
+				</p>
+						<div class="7e5d63c6540feda5e227514ef81ca30a" data-index="1" style="float: none; margin:10px 0 10px 0; text-align:center;">
+<p><center><span style="font-size:0.8em">Advertisements</span></center>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157"
+     crossorigin="anonymous"></script>
+<!-- Vertical Responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8822717667672157"
+     data-ad-slot="2513367070"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+<p>The <a href="https://www.pngall.com/globe-png">world</a> map can have a number of advantages: from cultural and social to geographical and <a href="https://www.pngall.com/education-png">educational</a>.</p>
+<p><a href="https://www.pngall.com/baby-png">Children</a> love to use their imagination and play games where they pretend that they are someone or something. Children can use the world map to represent themselves in another country, and imagine what life will be like on another continent, in different climates and in different neighboring countries. This helps children to appreciate and understand that life can differ in other countries from what they know. Countries near the equator will be hotter and will have to adapt the living conditions.</p><div class="7e5d63c6540feda5e227514ef81ca30a" data-index="1" style="float: none; margin:10px 0 10px 0; text-align:center;">
+<p><center><span style="font-size:0.8em">Advertisements</span></center>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157"
+     crossorigin="anonymous"></script>
+<!-- Vertical Responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8822717667672157"
+     data-ad-slot="2513367070"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+
+<p>World wall maps can provide an interesting perspective in the world in which we live. Not all maps of the world are in the standard format that we are used to with in the northern hemisphere at the top of the map, with the <a href="https://www.pngall.com/america-flag-png">America</a> on to the left (west) and <a href="https://www.pngall.com/china-flag-png">China</a> and Indonesia is on the right (east). There are several interesting maps of the world, which are formatted in different ways. Central map of the Pacific Ocean of Europe and North America for selected countries on the map. There are also maps with the reverse of the world where the southern hemisphere is in the north of the map, and countries such as <a href="https://www.pngall.com/australia-flag-png">Australia</a>, <a href="https://www.pngall.com/brazil-flag-png">Brazil</a> and South Africa are now in the north of the map.</p>
+<p>Having looked at the world map in the area in which you live, you can clearly see which countries and geographic features around you which give a scene of relativity.</p>
+<p><strong>Download World Map PNG images transparent gallery.</strong></p>
+
+		<style type="text/css">
+			#gallery-1 {
+				margin: auto;
+			}
+			#gallery-1 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 33%;
+			}
+			#gallery-1 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-1 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id='gallery-1' class='gallery galleryid-17305 gallery-columns-3 gallery-size-full'><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Photo"  href='https://www.pngall.com/world-map-png/download/25348'><div class="img_wrapper"><img width="720" height="339" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20339'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Photo" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Photo.png" /><noscript><img width="720" height="339" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Photo.png" class="attachment-full size-full" alt="World Map PNG Photo" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Photo</strong><br>Resolution: 720 × 339<br>Size: 15 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25348" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Pic"  href='https://www.pngall.com/world-map-png/download/25349'><div class="img_wrapper"><img width="1357" height="628" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201357%20628'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Pic" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Pic.png" /><noscript><img width="1357" height="628" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Pic.png" class="attachment-full size-full" alt="World Map PNG Pic" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Pic</strong><br>Resolution: 1357 × 628<br>Size: 298 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25349" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Picture"  href='https://www.pngall.com/world-map-png/download/25350'><div class="img_wrapper"><img width="3840" height="2322" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203840%202322'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Picture" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Picture.png" /><noscript><img width="3840" height="2322" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Picture.png" class="attachment-full size-full" alt="World Map PNG Picture" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Picture</strong><br>Resolution: 3840 × 2322<br>Size: 120 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25350" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Transparent HD Photo"  href='https://www.pngall.com/world-map-png/download/25351'><div class="img_wrapper"><img width="1200" height="627" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20627'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Transparent HD Photo" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Transparent-HD-Photo.png" /><noscript><img width="1200" height="627" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Transparent-HD-Photo.png" class="attachment-full size-full" alt="World Map PNG Transparent HD Photo" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Transparent HD Photo</strong><br>Resolution: 1200 × 627<br>Size: 230 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25351" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG"  href='https://www.pngall.com/world-map-png/download/25352'><div class="img_wrapper"><img width="3467" height="1890" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203467%201890'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG.png" /><noscript><img width="3467" height="1890" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG.png" class="attachment-full size-full" alt="World Map PNG" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG</strong><br>Resolution: 3467 × 1890<br>Size: 2951 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25352" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map Transparent"  href='https://www.pngall.com/world-map-png/download/25353'><div class="img_wrapper"><img width="2000" height="986" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202000%20986'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map Transparent" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-Transparent.png" /><noscript><img width="2000" height="986" src="https://www.pngall.com/wp-content/uploads/1/World-Map-Transparent.png" class="attachment-full size-full" alt="World Map Transparent" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map Transparent</strong><br>Resolution: 2000 × 986<br>Size: 396 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25353" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map"  href='https://www.pngall.com/world-map-png/download/25354'><div class="img_wrapper"><img width="2378" height="1185" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202378%201185'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map.png" /><noscript><img width="2378" height="1185" src="https://www.pngall.com/wp-content/uploads/1/World-Map.png" class="attachment-full size-full" alt="World Map" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map</strong><br>Resolution: 2378 × 1185<br>Size: 2262 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25354" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map Download PNG"  href='https://www.pngall.com/world-map-png/download/25355'><div class="img_wrapper"><img width="513" height="302" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20513%20302'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map Download PNG" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-Download-PNG.png" /><noscript><img width="513" height="302" src="https://www.pngall.com/wp-content/uploads/1/World-Map-Download-PNG.png" class="attachment-full size-full" alt="World Map Download PNG" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map Download PNG</strong><br>Resolution: 513 × 302<br>Size: 8 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25355" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map Free Download PNG"  href='https://www.pngall.com/world-map-png/download/25356'><div class="img_wrapper"><img width="560" height="294" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20294'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map Free Download PNG" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-Free-Download-PNG.png" /><noscript><img width="560" height="294" src="https://www.pngall.com/wp-content/uploads/1/World-Map-Free-Download-PNG.png" class="attachment-full size-full" alt="World Map Free Download PNG" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map Free Download PNG</strong><br>Resolution: 560 × 294<br>Size: 21 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25356" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map Free PNG Image"  href='https://www.pngall.com/world-map-png/download/25357'><div class="img_wrapper"><img width="874" height="424" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20874%20424'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map Free PNG Image" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-Free-PNG-Image.png" /><noscript><img width="874" height="424" src="https://www.pngall.com/wp-content/uploads/1/World-Map-Free-PNG-Image.png" class="attachment-full size-full" alt="World Map Free PNG Image" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map Free PNG Image</strong><br>Resolution: 874 × 424<br>Size: 71 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25357" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map High Quality PNG"  href='https://www.pngall.com/world-map-png/download/25358'><div class="img_wrapper"><img width="3832" height="2394" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203832%202394'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map High Quality PNG" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-High-Quality-PNG.png" /><noscript><img width="3832" height="2394" src="https://www.pngall.com/wp-content/uploads/1/World-Map-High-Quality-PNG.png" class="attachment-full size-full" alt="World Map High Quality PNG" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map High Quality PNG</strong><br>Resolution: 3832 × 2394<br>Size: 274 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25358" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Clipart"  href='https://www.pngall.com/world-map-png/download/25359'><div class="img_wrapper"><img width="1425" height="625" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201425%20625'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Clipart" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Clipart.png" /><noscript><img width="1425" height="625" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Clipart.png" class="attachment-full size-full" alt="World Map PNG Clipart" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Clipart</strong><br>Resolution: 1425 × 625<br>Size: 448 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25359" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG File"  href='https://www.pngall.com/world-map-png/download/25361'><div class="img_wrapper"><img width="1480" height="625" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201480%20625'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG File" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-File.png" /><noscript><img width="1480" height="625" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-File.png" class="attachment-full size-full" alt="World Map PNG File" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG File</strong><br>Resolution: 1480 × 625<br>Size: 461 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25361" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG HD"  href='https://www.pngall.com/world-map-png/download/25362'><div class="img_wrapper"><img width="1200" height="628" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20628'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG HD" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-HD.png" /><noscript><img width="1200" height="628" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-HD.png" class="attachment-full size-full" alt="World Map PNG HD" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG HD</strong><br>Resolution: 1200 × 628<br>Size: 94 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25362" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Image File"  href='https://www.pngall.com/world-map-png/download/25363'><div class="img_wrapper"><img width="1600" height="798" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%20798'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Image File" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Image-File.png" /><noscript><img width="1600" height="798" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Image-File.png" class="attachment-full size-full" alt="World Map PNG Image File" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Image File</strong><br>Resolution: 1600 × 798<br>Size: 354 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25363" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Image HD"  href='https://www.pngall.com/world-map-png/download/25364'><div class="img_wrapper"><img width="1600" height="809" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%20809'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Image HD" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Image-HD.png" /><noscript><img width="1600" height="809" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Image-HD.png" class="attachment-full size-full" alt="World Map PNG Image HD" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Image HD</strong><br>Resolution: 1600 × 809<br>Size: 60 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25364" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Image"  href='https://www.pngall.com/world-map-png/download/25365'><div class="img_wrapper"><img width="2054" height="1014" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202054%201014'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Image" data-lazy-src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Image.png" /><noscript><img width="2054" height="1014" src="https://www.pngall.com/wp-content/uploads/1/World-Map-PNG-Image.png" class="attachment-full size-full" alt="World Map PNG Image" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Image</strong><br>Resolution: 2054 × 1014<br>Size: 1766 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/25365" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map Free Download PNG"  href='https://www.pngall.com/world-map-png/download/17993'><div class="img_wrapper"><img width="2981" height="1458" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202981%201458'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map Free Download PNG" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-Free-Download-PNG.png" /><noscript><img width="2981" height="1458" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-Free-Download-PNG.png" class="attachment-full size-full" alt="World Map Free Download PNG" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map Free Download PNG</strong><br>Resolution: 2981 × 1458<br>Size: 509 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/17993" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map Free PNG Image"  href='https://www.pngall.com/world-map-png/download/18014'><div class="img_wrapper"><img width="623" height="400" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20623%20400'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map Free PNG Image" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-Free-PNG-Image.png" /><noscript><img width="623" height="400" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-Free-PNG-Image.png" class="attachment-full size-full" alt="World Map Free PNG Image" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map Free PNG Image</strong><br>Resolution: 623 × 400<br>Size: 18 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/18014" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Clipart"  href='https://www.pngall.com/world-map-png/download/18038'><div class="img_wrapper"><img width="1082" height="636" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201082%20636'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Clipart" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG-Clipart.png" /><noscript><img width="1082" height="636" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG-Clipart.png" class="attachment-full size-full" alt="World Map PNG Clipart" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Clipart</strong><br>Resolution: 1082 × 636<br>Size: 267 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/18038" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Image"  href='https://www.pngall.com/world-map-png/download/18062'><div class="img_wrapper"><img width="2000" height="1103" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202000%201103'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Image" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG-Image.png" /><noscript><img width="2000" height="1103" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG-Image.png" class="attachment-full size-full" alt="World Map PNG Image" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Image</strong><br>Resolution: 2000 × 1103<br>Size: 345 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/18062" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG Picture"  href='https://www.pngall.com/world-map-png/download/18078'><div class="img_wrapper"><img width="1600" height="669" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201600%20669'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG Picture" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG-Picture.png" /><noscript><img width="1600" height="669" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG-Picture.png" class="attachment-full size-full" alt="World Map PNG Picture" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG Picture</strong><br>Resolution: 1600 × 669<br>Size: 213 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/18078" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map PNG"  href='https://www.pngall.com/world-map-png/download/18173'><div class="img_wrapper"><img width="600" height="381" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20600%20381'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map PNG" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG.png" /><noscript><img width="600" height="381" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-PNG.png" class="attachment-full size-full" alt="World Map PNG" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map PNG</strong><br>Resolution: 600 × 381<br>Size: 51 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/18173" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map Transparent"  href='https://www.pngall.com/world-map-png/download/18174'><div class="img_wrapper"><img width="600" height="319" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20600%20319'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map Transparent" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-Transparent.png" /><noscript><img width="600" height="319" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map-Transparent.png" class="attachment-full size-full" alt="World Map Transparent" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map Transparent</strong><br>Resolution: 600 × 319<br>Size: 37 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/18174" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="World Map"  href='https://www.pngall.com/world-map-png/download/18175'><div class="img_wrapper"><img width="783" height="408" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20783%20408'%3E%3C/svg%3E" class="attachment-full size-full" alt="World Map" data-lazy-src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map.png" /><noscript><img width="783" height="408" src="https://www.pngall.com/wp-content/uploads/2017/05/World-Map.png" class="attachment-full size-full" alt="World Map" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">World Map</strong><br>Resolution: 783 × 408<br>Size: 121 KB<br>Image Format: .png<br><a href="https://www.pngall.com/world-map-png/download/18175" target="blank" class="download">Download</a></dd></dl>
+			<br style='clear: both' />
+		</div>
+
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>											</div><!-- .entry-content -->
+									 
+				<div class="clear"></div>
+			</article><!-- #post -->
+							<h3>Related PNG:</h3>
+<!-- relpost-thumb-wrapper --><div class="relpost-thumb-wrapper"><!-- filter-class --><div class="relpost-thumb-container"><div style="clear: both"></div><div style="clear: both"></div><!-- relpost-block-container --><div class="relpost-block-container"><a href="https://www.pngall.com/africa-png"class="relpost-block-single" ><div class="relpost-custom-block-single" style="width: 180px; height: 255px;"><div class="relpost-block-single-image" alt="Map of Africa Transparent" style="background: transparent url(https://www.pngall.com/wp-content/uploads/5/Map-of-Africa-Transparent-180x180.png) no-repeat scroll 0% 0%; width: 180px; height: 180px;"></div><div class="relpost-block-single-text"  style="font-family: Arial;  font-size: 16px;  color: #333333;">Africa PNG Transparent Images</div></div></a><a href="https://www.pngall.com/earth-png"class="relpost-block-single" ><div class="relpost-custom-block-single" style="width: 180px; height: 255px;"><div class="relpost-block-single-image" alt="Earth PNG Transparent Images" style="background: transparent url(https://www.pngall.com/wp-content/uploads/2016/06/Earth-Free-Download-PNG-180x180.png) no-repeat scroll 0% 0%; width: 180px; height: 180px;"></div><div class="relpost-block-single-text"  style="font-family: Arial;  font-size: 16px;  color: #333333;">Earth PNG Transparent Images</div></div></a><a href="https://www.pngall.com/globe-png"class="relpost-block-single" ><div class="relpost-custom-block-single" style="width: 180px; height: 255px;"><div class="relpost-block-single-image" alt="Globe PNG Transparent Images" style="background: transparent url(https://www.pngall.com/wp-content/uploads/2016/06/Globe-Free-Download-PNG-180x180.png) no-repeat scroll 0% 0%; width: 180px; height: 180px;"></div><div class="relpost-block-single-text"  style="font-family: Arial;  font-size: 16px;  color: #333333;">Globe PNG Transparent Images</div></div></a></div><!-- close relpost-block-container --><div style="clear: both"></div></div><!-- close filter class --></div><!-- close relpost-thumb-wrapper -->					  		
+<!-- BEGIN #comments -->
+<div id="comments">
+
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a rel="nofollow" id="cancel-comment-reply-link" href="/world-map-png#respond" style="display:none;">Cancel Reply</a></small></h3><form action="https://www.pngall.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required" aria-hidden="true">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required" /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required" aria-hidden="true">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" required="required" /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" /></p>
+<div class="c4wp_captcha_field" style="margin-bottom: 10px;"><div id="c4wp_captcha_field_1" class="c4wp_captcha_field_div"><input type="hidden" name="g-recaptcha-response" aria-label="do not use" aria-readonly="true" value=""/></div></div><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit Comment" /> <input type='hidden' name='comment_post_ID' value='17305' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="337e1b1c71" /></p><p style="display: none !important;"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="78"/><script type="rocketlazyloadscript">document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	
+		
+<!-- #comments -->
+</div> 	
+		  			  		
+			
+	</div><!-- #content -->
+
+
+	<div id="sidebar">
+	
+				
+			<div class="widget entry-meta entry-header">
+			
+				                 
+	            <span class="entry-views"><i class="icon-camera"></i> 110469 Total Views</span> 
+				
+				<span class="entry-categories"><i class="icon-folder-close"></i> <a href="https://www.pngall.com/category/world" rel="category tag">World</a> PNG</span>
+				
+								
+								
+				<div class="additional-info">	
+									</div><!-- .additional-info -->
+						
+			</div><!-- .entry-meta .entry-header -->
+				
+				
+		<aside id="search-2" class="widget widget_search"><h3 class="widget-title">Search</h3><div class="search-form">
+	<form action="https://www.pngall.com" id="searchform" method="get">
+		<input name="s" type="text" placeholder="Search this site..."></input>
+	</form>
+</div><!-- .search-form --></aside><aside id="custom_html-6" class="widget_text widget widget_custom_html"><h3 class="widget-title">Follow Us</h3><div class="textwidget custom-html-widget"><a href="https://www.facebook.com/pngall" class="fa fa-facebook" target="_blank" rel="noopener"></a>
+<a href="https://www.twitter.com/pngallimg" class="fa fa-twitter" target="_blank" rel="noopener"></a>
+<a href="https://feeds.feedburner.com/PNGAll" class="fa fa-rss" target="_blank" rel="noopener"></a>
+</div></aside><aside id="custom_html-17" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><p><center><span style="font-size:0.8em">Advertisements</span></center>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157"
+     crossorigin="anonymous"></script>
+<!-- Vertical Responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8822717667672157"
+     data-ad-slot="2513367070"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p></div></aside>
+		<aside id="recent-posts-2" class="widget widget_recent_entries">
+		<h3 class="widget-title">Latest PNG Images</h3>
+		<ul>
+											<li>
+					<a href="https://www.pngall.com/nothing-phone-1png">Nothing Phone (1) PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/iphone-14-png">iPhone 14 PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/iphone-13-edge-png">iPhone 13 Edge PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/ladybird-png">Ladybird PNG Transparent Images</a>
+									</li>
+					</ul>
+
+		</aside>		
+	</div><!-- #sidebar -->
+	
+<div class="clear"></div>
+</div><!-- #main -->
+
+	<footer id="footer">
+				
+				<div id="copyright" class="container">
+				<div class="right">
+				&copy; 2016 - 2022 <a href="https://www.pngall.com">PNG All</a>. All rights reserved.              				</div><!-- .left -->
+				<div class="left">
+				
+					
+
+<a href="/">Home</a> | <a href="/cookie-policy">Cookie Policy</a> | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms & Conditions</a> | <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a>
+				</div><!-- .right -->
+				<div class="clear"></div>
+		</div><!-- #copyright -->
+		
+	</footer><!-- #footer -->
+	
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/adv1\/|\/monetization.js|\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin|\/logout|\/wp-login.php","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/www.pngall.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-includes/js/comment-reply.min.js?ver=6.0.1' id='comment-reply-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" defer data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1664958004' id='akismet-frontend-js'></script>
+			<script type="rocketlazyloadscript" src="https://www.google.com/recaptcha/api.js?render=6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL&#038;hl=en"></script>
+			<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+				( function( grecaptcha ) {
+
+					var c4wp_onloadCallback = function() {
+						grecaptcha.execute(
+							'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+							{ action: 'advanced_nocaptcha_recaptcha' }
+						).then( function( token ) {
+							for ( var i = 0; i < document.forms.length; i++ ) {
+								var form = document.forms[i];
+								var captcha = form.querySelector( 'input[name="g-recaptcha-response"]' );
+								if ( null === captcha )
+									continue;
+
+								captcha.value = token;
+							}
+							// Apply relevent accessibility attributes to response.
+							var responseTextareas = document.querySelectorAll(".g-recaptcha-response");
+							responseTextareas.forEach(function(textarea) {
+								textarea.setAttribute("aria-hidden", "true");
+								textarea.setAttribute("aria-label", "do not use");
+								textarea.setAttribute("aria-readonly", "true");
+							});
+						});
+					};
+
+					grecaptcha.ready( c4wp_onloadCallback );
+
+					//token is valid for 2 minutes, So get new token every after 1 minutes 50 seconds
+					setInterval(c4wp_onloadCallback, 110000);
+
+				} )( grecaptcha );
+			</script>
+			<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.pngall.com/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script><style>
+._bsa_flexbar .flexbar-logo img { background: none; }
+</style><script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<script>
+(function(){
+	if(typeof _bsa !== 'undefined' && _bsa) {
+  		// format, zoneKey, segment:value, options
+  		_bsa.init('flexbar', 'CK7DC2JU', 'placement:pngallcom');
+  	}
+})();
+</script>
+</body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1665120910 -->
